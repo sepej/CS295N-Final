@@ -1,5 +1,11 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "MADWORDS";
+
+    var random = new Random();
+    string[] write = { "Write", "Scribble", "Create", "Compose", "Sling", "Shoot", "Journal", "Ink", "Jot down", "Sign", "Scrawl" };
+    string writeTitle = write[random.Next(write.Length)];
+
+    ViewData["Create"] = writeTitle + " some MADWORD";
 }
 
 <div class="text-center">

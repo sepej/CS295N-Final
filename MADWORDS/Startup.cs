@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MADWORDS.Models;
+using MADWORDS.Repos;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +27,10 @@ namespace MADWORDS
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            // Inject our repositories into our controllers
+            services.AddTransient<IMadwordRepository, MadwordRepository>(); // Generic types: Repository interface, Repository class
+
+            services.AddDbContext<MadwordContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:SQLServerConnection"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

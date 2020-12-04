@@ -1,0 +1,45 @@
+﻿@model Madword
+@{
+    var random = new Random();
+    string[] write = { "Write", "Scribble", "Create", "Compose", "Sling", "Shoot", "Journal", "Ink", "Jot down", "Sign", "Scrawl" };
+    string writeTitle = write[random.Next(write.Length)];
+
+    ViewData["Title"] = writeTitle + " some MADWORD";
+}
+
+<div class="text-center">
+    <h1 class="jumbotron">WooHoo</h1>
+    <form method="post" class="container">
+        <div class="row p-2 text-justify">
+            <label asp-for="MadwordTitle" class="control-label col-sm-3 col-md-1">Title</label>
+            <input asp-for="MadwordTitle" class="form-control col-sm-9 col-md-11" />
+        </div>
+        <div class="row p-2 text-justify">
+            <label asp-for="Author.Name" class="control-label col-sm-3 col-md-1">Author</label>
+            <input asp-for="Author.Name" class="form-control col-sm-9 col-md-11" />
+        </div>
+        <div class="row p-2 text-justify">
+            <label asp-for="MadwordRating" class="control-label col-sm-3 col-md-1">Rating</label>
+            <input asp-for="MadwordRating" class="form-control col-sm-9 col-md-11" />
+        </div>
+        <div class="row p-2 text-justify">
+            <label asp-for="MadwordText" class="control-label col-sm-3 col-md-1">Text</label>
+            <textarea asp-for="MadwordText" class="form-control col-sm-9 col-md-11"></textarea>
+        </div>
+
+        <div class="row p-2">
+            <div class="col-10"></div>
+            <button type="submit" class="form-control btn btn-success col-2">Submit</button>
+        </div>
+    </form>
+    @if (Model != null)
+    {
+        <div class="container mt-3 shadow p-5 text-left">
+            <h4>@Model.MadwordTitle</h4>
+            <p><small>@Model.MadwordDate</small></p>
+            <p><strong>Author: </strong>@Model.Author.Name</p>
+            <p><strong>Topic: </strong>@Model.MadwordRating</p>
+            <p><strong>Story: </strong>@Model.MadwordText</p>
+        </div>
+    }
+    </div>

@@ -1,0 +1,13 @@
+﻿@model List<Madword>
+
+@{ ViewData["Title"] = "MADWORDS"; }
+
+@foreach (Madword madword in Model)
+{
+<div class="container mt-3 shadow p-5 text-left">
+    <h4>@madword.MadwordTitle</h4>
+    <p><small>@madword.MadwordDate</small></p>
+    <p><strong>Author: </strong>@madword.Author.Name</p>
+    <p><strong>Rating: </strong>@madword.MadwordRating</p>
+    <p><strong>Story: </strong>@madword.MadwordText</p>
+</div>}
