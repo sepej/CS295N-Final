@@ -1,4 +1,5 @@
 ﻿@model Madword
+
 @{
     var random = new Random();
     string[] write = { "Write", "Scribble", "Create", "Compose", "Sling", "Shoot", "Journal", "Ink", "Jot down", "Sign", "Scrawl" };
@@ -8,34 +9,84 @@
 }
 
 <div class="text-center">
-    <h1 class="jumbotron">WooHoo</h1>
-    <form method="post" class="container">
-        <div class="row p-2 text-justify">
-            <label asp-for="MadwordTitle" class="control-label col-sm-3 col-md-1">Title</label>
-            <input asp-for="MadwordTitle" class="form-control col-sm-9 col-md-11" />
-        </div>
-        <div class="row p-2 text-justify">
-            <label asp-for="Author.Name" class="control-label col-sm-3 col-md-1">Author</label>
-            <input asp-for="Author.Name" class="form-control col-sm-9 col-md-11" />
-        </div>
-        <div class="row p-2 text-justify">
-            <label asp-for="MadwordText" class="control-label col-sm-3 col-md-1">Text</label>
-            <textarea asp-for="MadwordText" class="form-control col-sm-9 col-md-11"></textarea>
-        </div>
+    <h1 class="jumbotron">@ViewData["Title"]</h1>
 
-        <div class="row p-2">
-            <div class="col-10"></div>
-            <button type="submit" class="form-control btn btn-success col-2">Submit</button>
+    <form method="post">
+        <div class="row p-2 text-justify">
+            <div class="col-sm-3 my-1">
+                <h3>Author</h3>
+                <input asp-for="Author.Name" class="form-control col-sm-9 col-md-11" required />
+            </div>
         </div>
+        <div class="row p-2 text-justify">
+            <div class="col-sm-3 my-1">
+                <h3>MADWORD</h3>
+            </div>
+        </div>
+        <div class="form-row align-items-center" id="madwords">
+
+
+            <div class="col-sm-3 my-1">
+                <label>Verb</label>
+                <input type="text" class="form-control word" placeholder="" required>
+            </div>
+        </div>
+        <div class="row p-2 text-justify">
+            <div class="col-sm-6 my-1">
+                <h3>Title</h3>
+                <p>Title your MADWORD based on the words you entered.</p>
+                <input asp-for="MadwordTitle" class="form-control col-sm-9 col-md-11 titleword" id="Title" placeholder="" required />
+            </div>
+        </div>
+        <div class="row p-2 text-justify">
+            <div class="col-sm-3 my-1">
+                <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
+            </div>
+        </div>
+        <input asp-for="MadwordText" type="text" id="words" />
     </form>
+
     @if (Model != null)
     {
         <div class="container mt-3 shadow p-5 text-left">
             <h4>@Model.MadwordTitle</h4>
             <p><small>@Model.MadwordDate</small></p>
             <p><strong>Author: </strong>@Model.Author.Name</p>
-            <p><strong>Topic: </strong>@Model.MadwordRating</p>
+            <p><strong>Rating: </strong>@Model.MadwordRating</p>
             <p><strong>Story: </strong>@Model.MadwordText</p>
         </div>
     }
-    </div>
+</div>
+
+
+@section Scripts
+{
+    <script>
+        //let storyNumber = Math.floor((Math.random() * 6));
+        var storyNumber = 1;
+        var story1 = `Somebody once told me the * is gonna * me, I ain't the * * in the *, She was looking kind of * with her * and her *, In the shape of a * on her *`;
+        var story1Blanks = ["Noun", "Verb", "Verb", "Noun", "Pplace", "Adjective", "Noun", "Noun", "Letter", "Noun"];
+        story1Blanks.forEach(addWord);
+
+        function addWord(item, index) {
+            document.getElementById("madwords").innerHTML += `
+            <div class="col-sm-3 my-1">
+                <label>${item}</label>
+                <input type="text" class="form-control word" placeholder="" required>
+            </div>
+            `;
+        }
+        switch (storyNumber) {
+            case 0:
+                // code block
+                break;
+            case 1:
+                //document.getElementById("madwords").innerHTML += 
+                //$('#madwords').html(story1);
+                // code block
+                break;
+            default:
+                //$('#madwords').html('<p>${story1}</p>');
+        }
+    </script>
+}
