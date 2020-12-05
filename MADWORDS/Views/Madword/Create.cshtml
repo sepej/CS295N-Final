@@ -9,47 +9,53 @@
 }
 
 <div class="text-center">
-    <h1 class="jumbotron">@ViewData["Title"]</h1>
-
-    <form method="post">
-        <div class="row p-2 text-justify">
-            <div class="col-sm-3 my-1">
-                <h3>Author</h3>
-                <input asp-for="Author.Name" class="form-control col-sm-9 col-md-11" required />
-            </div>
-        </div>
-        <div class="row p-2 text-justify">
-            <div class="col-sm-3 my-1">
-                <h3>MADWORD</h3>
-            </div>
-        </div>
-        <div class="form-row align-items-center" id="madwords">
-
-        </div>
-        <div class="row p-2 text-justify">
-            <div class="col-sm-6 my-1">
-                <h3>Title</h3>
-                <p>Title your MADWORD based on the words you entered.</p>
-                <input asp-for="MadwordTitle" class="form-control col-sm-9 col-md-11 titleword" id="Title" placeholder="" required />
-            </div>
-        </div>
-        <div class="row p-2 text-justify">
-            <div class="col-sm-3 my-1">
-                <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
-            </div>
-        </div>
-        <input asp-for="MadwordText" type="text" id="words" />
-    </form>
-
     @if (Model != null)
     {
-        <div class="container mt-3 shadow p-5 text-left">
-            <h4>@Model.MadwordTitle</h4>
+        <h1 class="jumbotron">Your MADWORD</h1>
+        <div>
+            <h3>@Model.MadwordTitle</h3>
+            <p><strong>@Model.MadwordText</strong></p>
+            <p>By @Model.Author.Name</p>
             <p><small>@Model.MadwordDate</small></p>
-            <p><strong>Author: </strong>@Model.Author.Name</p>
-            <p><strong>Rating: </strong>@Model.MadwordRating</p>
-            <p><strong>Story: </strong>@Model.MadwordText</p>
         </div>
+
+        <div class="container mt-3 p-5 text-center">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Madword" asp-action="Create"><strong>MAKE MORE WORD</strong></a>
+        </div>
+    }
+    else
+    {
+        <h1 class="jumbotron">@ViewData["Title"]</h1>
+
+        <form method="post">
+            <div class="row p-2 text-justify">
+                <div class="col-sm-3 my-1">
+                    <h3>Author</h3>
+                    <input asp-for="Author.Name" class="form-control col-sm-9 col-md-11" required />
+                </div>
+            </div>
+            <div class="row p-2 text-justify">
+                <div class="col-sm-3 my-1">
+                    <h3>MADWORD</h3>
+                </div>
+            </div>
+            <div class="form-row align-items-center" id="madwords">
+
+            </div>
+            <div class="row p-2 text-justify">
+                <div class="col-sm-6 my-1">
+                    <h3>Title</h3>
+                    <p>Title your MADWORD based on the words you entered.</p>
+                    <input asp-for="MadwordTitle" class="form-control col-sm-9 col-md-11 titleword" id="Title" placeholder="" required />
+                </div>
+            </div>
+            <div class="row p-2 text-justify">
+                <div class="col-sm-3 my-1">
+                    <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
+                </div>
+            </div>
+            <input asp-for="MadwordText" type="text" id="words" />
+        </form>
     }
 </div>
 

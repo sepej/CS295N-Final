@@ -5,9 +5,17 @@
 @foreach (Madword madword in Model)
 {
 <div class="container mt-3 shadow p-5 text-left">
-    <h4>@madword.MadwordTitle</h4>
+    <h3>@madword.MadwordTitle</h3>
+    <p><strong>@madword.MadwordText</strong></p>
+    <p>By @madword.Author.Name</p>
     <p><small>@madword.MadwordDate</small></p>
-    <p><strong>Author: </strong>@madword.Author.Name</p>
-    <p><strong>Rating: </strong>@madword.MadwordRating</p>
-    <p><strong>Story: </strong>@madword.MadwordText</p>
+    <p>Votes: @madword.MadwordRating <a href="">👍</a></p>
 </div>}
+
+@if (Model.Count == 0)
+{
+    <div class="container mt-3 p-5 text-center">
+        <p>Nobody's written a MADWORD yet.</p>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Madword" asp-action="Create"><strong>BE THE FIRST</strong></a>
+    </div>
+}

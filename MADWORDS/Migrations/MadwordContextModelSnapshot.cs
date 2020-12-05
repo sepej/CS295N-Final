@@ -35,8 +35,8 @@ namespace MADWORDS.Migrations
                     b.Property<DateTime>("MadwordDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("MadwordRating")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("MadwordRating")
+                        .HasColumnType("int");
 
                     b.Property<string>("MadwordText")
                         .HasColumnType("nvarchar(max)");

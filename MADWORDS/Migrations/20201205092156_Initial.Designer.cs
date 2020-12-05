@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MADWORDS.Migrations
 {
     [DbContext(typeof(MadwordContext))]
-    [Migration("20201204072404_Initial")]
+    [Migration("20201205092156_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,8 +37,8 @@ namespace MADWORDS.Migrations
                     b.Property<DateTime>("MadwordDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("MadwordRating")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("MadwordRating")
+                        .HasColumnType("int");
 
                     b.Property<string>("MadwordText")
                         .HasColumnType("nvarchar(max)");

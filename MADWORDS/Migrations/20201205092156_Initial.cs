@@ -29,7 +29,7 @@ namespace MADWORDS.Migrations
                     MadwordTitle = table.Column<string>(nullable: true),
                     MadwordTopic = table.Column<string>(nullable: true),
                     AuthorName = table.Column<string>(nullable: true),
-                    MadwordRating = table.Column<decimal>(nullable: false),
+                    MadwordRating = table.Column<int>(nullable: false),
                     AuthorUserID = table.Column<int>(nullable: true),
                     MadwordText = table.Column<string>(nullable: true),
                     MadwordDate = table.Column<DateTime>(nullable: false)
