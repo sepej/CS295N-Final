@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MADWORDS.Migrations.Update
+namespace MADWORDS.Migrations
 {
     public partial class Initial : Migration
     {

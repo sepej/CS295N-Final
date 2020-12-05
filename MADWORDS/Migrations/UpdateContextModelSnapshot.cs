@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace MADWORDS.Migrations.Update
+namespace MADWORDS.Migrations
 {
     [DbContext(typeof(UpdateContext))]
     partial class UpdateContextModelSnapshot : ModelSnapshot

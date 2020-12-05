@@ -48,5 +48,14 @@ namespace MADWORDS.Controllers
             
             return View(madwords);
         }
+
+        [HttpPost]
+        public IActionResult Index(string madwordTitle)
+        {
+            var madwords = (from r in repo.Madwords
+                           where r.MadwordTitle == madwordTitle
+                           select r).ToList();
+            return View(madwords);
+        }
     }
 }

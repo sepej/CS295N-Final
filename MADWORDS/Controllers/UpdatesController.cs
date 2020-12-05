@@ -21,7 +21,7 @@ namespace MADWORDS.Controllers
         public IActionResult Index()
         {
             //get all updates in the database
-            List<Update> updates = repo.Updates.ToList<Update>(); // Use ToList to convert the IQueryable to a list
+            List<Update> updates = repo.Updates.ToList(); // Use ToList to convert the IQueryable to a list
             return View(updates);
         }
 

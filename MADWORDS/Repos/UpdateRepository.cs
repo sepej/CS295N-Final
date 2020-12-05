@@ -23,7 +23,7 @@ namespace MADWORDS.Repos
             {
                 // Get all the Update objects in the Updates DbSet
                 // and include the Title object in each Update.
-                return context.Updates.Include(update => update.UpdateTitle);
+                return context.Updates;
             }
         }
 

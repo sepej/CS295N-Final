@@ -2,6 +2,22 @@
 
 @{ ViewData["Title"] = "MADWORDS"; }
 
+
+@if (Model.Count != 0)
+{
+<h1 class="display-4">Search MADWORDS</h1>
+<form method="post" class="container">
+    <div class="row p-2">
+        <label for="MadwordTitle" class="control-label col-md-1">Title</label>
+        <input name="MadwordTitle" class="form-control col-md-6" />
+    </div>
+    <div class="row p-2">
+        <button type="submit" class="form-control btn btn-success col-2">Search</button>
+        <a asp-action="Index" class="btn btn-secondary col-3">Reset</a>
+    </div>
+</form>
+}
+
 @foreach (Madword madword in Model)
 {
 <div class="container mt-3 shadow p-5 text-left">
@@ -13,8 +29,7 @@
 
 @if (Model.Count == 0)
 {
-    <div class="container mt-3 p-5 text-center">
-        <p>Nobody's written a MADWORD yet.</p>
-        <a class="nav-link text-dark" asp-area="" asp-controller="Madword" asp-action="Create"><strong>BE THE FIRST</strong></a>
-    </div>
-}
+<div class="container mt-3 p-5 text-center">
+    <p>Nobody's written a MADWORD yet.</p>
+    <a class="nav-link text-dark" asp-area="" asp-controller="Madword" asp-action="Create"><strong>BE THE FIRST</strong></a>
+</div>}

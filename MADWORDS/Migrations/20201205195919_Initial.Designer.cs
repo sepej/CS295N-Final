@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace MADWORDS.Migrations.Update
+namespace MADWORDS.Migrations
 {
     [DbContext(typeof(UpdateContext))]
-    [Migration("20201205002348_Initial")]
+    [Migration("20201205195919_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

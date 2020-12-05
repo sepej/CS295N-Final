@@ -35,7 +35,9 @@ namespace MADWORDS.Repos
 
         public Madword GetMadwordByTitle(string title)
         {
-            throw new NotImplementedException();
+            Madword madword;
+            madword = context.Madwords.First(b => b.MadwordTitle == title);
+            return madword;
         }
     }
 }
