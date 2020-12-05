@@ -35,7 +35,7 @@ namespace MADWORDS.Controllers
         public IActionResult Create(Madword model)
         {
             model.MadwordDate = DateTime.Now;
-            model.MadwordRating = 3.00m;
+            model.MadwordRating = 1;
             // Store the model in the database
             repo.AddMadword(model);
             return View(model);

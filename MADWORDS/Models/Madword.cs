@@ -13,7 +13,7 @@ namespace MADWORDS.Models
         public string MadwordTitle { get; set; }
         public string MadwordTopic { get; set; }
         public string AuthorName { get; set; }
-        public decimal MadwordRating { get; set; }
+        public int MadwordRating { get; set; }
 
         // Has-a relationship
         // when EF creates the table, it will automatically create foreign key because of this

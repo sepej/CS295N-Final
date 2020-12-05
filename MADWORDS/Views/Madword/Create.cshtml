@@ -61,12 +61,12 @@
         var stories = {
             "story": [
                 {
-                    "text": "Somebody once told me the * is gonna * me, I ain't the * * in the *, She was looking kind of * with her * and her *, In the shape of a * on her *",
-                    "blanks": ["Noun", "Verb", "Verb", "Noun", "Place", "Adjective", "Noun", "Noun", "Letter", "Noun"]
+                    "text": "Somebody once told me the * is gonna * me, I ain't the * * in the *, She was looking kind of * with her * and her * in the shape of a * on her *",
+                    "blanks": ["Noun", "Verb", "Adjective", "Noun", "Place", "Adjective", "Noun", "Noun", "Letter", "Noun"]
                 },
                 {
-                    "text": "Somebody once told me the * is gonna * me, I ain't the * * in the *, She was looking kind of * with her * and her *, In the shape of a * on her *",
-                    "blanks": ["Noun", "Verb", "Verb", "Noun", "Place", "Adjective", "Noun", "Noun", "Letter", "Noun"]
+                    "text": "Somebody once told me the * is gonna * me, I ain't the * * in the *, She was looking kind of * with her * and her * in the shape of a * on her *",
+                    "blanks": ["Noun", "Verb", "Adjective", "Noun", "Place", "Adjective", "Noun", "Noun", "Letter", "Noun"]
                 }
             ]
         }
@@ -93,16 +93,5 @@
             default:
                 //$('#madwords').html('<p>${story1}</p>');
         }
-
-
-
-        $("#submitbtn").on("click", function () {
-            var a = '';
-            $('.word').each(function () {
-                a += this.value + ",";
-            });
-            $('#words').val(a);
-        }
-        );
     </script>
 }

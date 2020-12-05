@@ -2,3 +2,13 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+$("#submitbtn").on("click", function () {
+    var completedMadword = stories.story[1].text;
+    $('.word').each(function () {
+        completedMadword = completedMadword.replace('*', this.value);
+        //a += this.value + ",";
+    });
+    $('#words').val(completedMadword);
+}
+);
