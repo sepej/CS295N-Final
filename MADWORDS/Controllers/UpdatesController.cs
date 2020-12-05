@@ -12,5 +12,10 @@ namespace MADWORDS.Controllers
         {
             return View();
         }
+
+        public IActionResult NewUpdate()
+        {
+            return View();
+        }
     }
 }

@@ -29,8 +29,10 @@ namespace MADWORDS
             services.AddControllersWithViews();
             // Inject our repositories into our controllers
             services.AddTransient<IMadwordRepository, MadwordRepository>(); // Generic types: Repository interface, Repository class
+            services.AddTransient<IUpdateRepository, UpdateRepository>();
 
             services.AddDbContext<MadwordContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:SQLServerConnection"]));
+            services.AddDbContext<UpdateContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:SQLServerConnection"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
