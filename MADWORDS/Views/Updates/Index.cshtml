@@ -1,8 +1,14 @@
-﻿@{
+﻿@model List<Update>
+
+@{
     ViewData["Title"] = "Updates";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Updates</h1>
-    <p>Updates.</p>
-</div>
+@foreach (Update update in Model)
+{
+    <div class="container mt-3 shadow p-5 text-left">
+        <h4>@update.UpdateTitle</h4>
+        <p><small>@update.UpdateDate</small></p>
+        <p>@update.UpdateText</p>
+    </div>
+}

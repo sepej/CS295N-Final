@@ -20,8 +20,9 @@ namespace MADWORDS.Controllers
 
         public IActionResult Index()
         {
+            //get all madwords in the database
             List<Madword> madwords = repo.Madwords.ToList<Madword>(); // Use ToList to convert the IQueryable to a list
-            
+
             return View(madwords);
         }
 
@@ -31,12 +32,12 @@ namespace MADWORDS.Controllers
         }
 
         [HttpPost]
-        public IActionResult Madword(Madword model)
+        public IActionResult Create(Madword model)
         {
             model.MadwordDate = DateTime.Now;
+            model.MadwordRating = 3.00m;
             // Store the model in the database
             repo.AddMadword(model);
-
             return View(model);
         }
 
