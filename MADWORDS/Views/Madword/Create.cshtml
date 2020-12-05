@@ -25,11 +25,6 @@
         </div>
         <div class="form-row align-items-center" id="madwords">
 
-
-            <div class="col-sm-3 my-1">
-                <label>Verb</label>
-                <input type="text" class="form-control word" placeholder="" required>
-            </div>
         </div>
         <div class="row p-2 text-justify">
             <div class="col-sm-6 my-1">
@@ -63,10 +58,19 @@
 {
     <script>
         //let storyNumber = Math.floor((Math.random() * 6));
-        var storyNumber = 1;
-        var story1 = `Somebody once told me the * is gonna * me, I ain't the * * in the *, She was looking kind of * with her * and her *, In the shape of a * on her *`;
-        var story1Blanks = ["Noun", "Verb", "Verb", "Noun", "Pplace", "Adjective", "Noun", "Noun", "Letter", "Noun"];
-        story1Blanks.forEach(addWord);
+        var stories = {
+            "story": [
+                {
+                    "text": "Somebody once told me the * is gonna * me, I ain't the * * in the *, She was looking kind of * with her * and her *, In the shape of a * on her *",
+                    "blanks": ["Noun", "Verb", "Verb", "Noun", "Place", "Adjective", "Noun", "Noun", "Letter", "Noun"]
+                },
+                {
+                    "text": "Somebody once told me the * is gonna * me, I ain't the * * in the *, She was looking kind of * with her * and her *, In the shape of a * on her *",
+                    "blanks": ["Noun", "Verb", "Verb", "Noun", "Place", "Adjective", "Noun", "Noun", "Letter", "Noun"]
+                }
+            ]
+        }
+        stories.story[1].blanks.forEach(addWord);
 
         function addWord(item, index) {
             document.getElementById("madwords").innerHTML += `
@@ -76,6 +80,7 @@
             </div>
             `;
         }
+
         switch (storyNumber) {
             case 0:
                 // code block
@@ -88,5 +93,16 @@
             default:
                 //$('#madwords').html('<p>${story1}</p>');
         }
+
+
+
+        $("#submitbtn").on("click", function () {
+            var a = '';
+            $('.word').each(function () {
+                a += this.value + ",";
+            });
+            $('#words').val(a);
+        }
+        );
     </script>
 }
