@@ -12,3 +12,9 @@
         <p>@update.UpdateText</p>
     </div>
 }
+
+@if (Model.Count == 0)
+{
+<div class="container mt-3 p-5 text-center">
+    <p>There aren't any updates yet.</p>
+</div>}

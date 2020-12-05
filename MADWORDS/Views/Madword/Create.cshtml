@@ -54,7 +54,7 @@
                     <button type="submit" class="btn btn-primary" id="submitbtn">Submit</button>
                 </div>
             </div>
-            <input asp-for="MadwordText" type="text" id="words" />
+            <input asp-for="MadwordText" type="text" id="words" hidden />
         </form>
     }
 </div>
@@ -63,7 +63,6 @@
 @section Scripts
 {
     <script>
-        //let storyNumber = Math.floor((Math.random() * 6));
         var stories = {
             "story": [
                 {
@@ -71,12 +70,18 @@
                     "blanks": ["Noun", "Verb", "Adjective", "Noun", "Place", "Adjective", "Noun", "Noun", "Letter", "Noun"]
                 },
                 {
-                    "text": "Somebody once told me the * is gonna * me, I ain't the * * in the *, She was looking kind of * with her * and her * in the shape of a * on her *",
-                    "blanks": ["Noun", "Verb", "Adjective", "Noun", "Place", "Adjective", "Noun", "Noun", "Letter", "Noun"]
+                    "text": `* the *-nosed * had a very * nose, And if you ever * it, You would even say it glows, All of the other * used to * and call him *, They never let * * * in any * games`,
+                    "blanks": ["Name", "Adjective", "Noun", "Adjective", "Verb", "Noun", "Verb", "Noun", "Adjective", "Name", "Verb", "Adjective"]
+                },
+                {
+                    "text": `The majestic * has roamed the forests of * for thousands of years. Today, it wanders in search of *. It must find * to survive the harsh *.`,
+                    "blanks": ["Animal", "Country", "Noun", "Noun", "Season"]
                 }
             ]
         }
-        stories.story[1].blanks.forEach(addWord);
+
+        let storyNumber = Math.floor((Math.random() * stories.story.length));
+        stories.story[storyNumber].blanks.forEach(addWord);
 
         function addWord(item, index) {
             document.getElementById("madwords").innerHTML += `
@@ -85,19 +90,6 @@
                 <input type="text" class="form-control word" placeholder="" required>
             </div>
             `;
-        }
-
-        switch (storyNumber) {
-            case 0:
-                // code block
-                break;
-            case 1:
-                //document.getElementById("madwords").innerHTML += 
-                //$('#madwords').html(story1);
-                // code block
-                break;
-            default:
-                //$('#madwords').html('<p>${story1}</p>');
         }
     </script>
 }

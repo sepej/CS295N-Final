@@ -22,7 +22,6 @@ namespace MADWORDS.Controllers
         {
             //get all updates in the database
             List<Update> updates = repo.Updates.ToList<Update>(); // Use ToList to convert the IQueryable to a list
-
             return View(updates);
         }
 
