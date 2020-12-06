@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/fall-2020/databases/madwords",
+      "type": "mssql.azure",
+      "connectionId": "SQLServerConnection",
+      "secretStore": "LocalSecretsFile"
+    }
+  }
+}

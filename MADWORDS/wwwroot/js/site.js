@@ -11,3 +11,9 @@ $("#submitbtn").on("click", function () {
     $('#words').val(completedMadword);
 }
 );
+
+$(document).ready(function () {
+    let backgroundNumber = Math.floor((Math.random() * 4) +1);
+    var imageUrl = "../img/background"+ backgroundNumber +".jpg";
+    $("body").css("background-image", "url(" + imageUrl + ")");
+});

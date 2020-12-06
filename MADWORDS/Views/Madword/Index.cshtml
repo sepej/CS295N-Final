@@ -5,17 +5,29 @@
 
 @if (Model.Count != 0)
 {
-<h1 class="display-4">Search MADWORDS</h1>
-<form method="post" class="container">
-    <div class="row p-2">
-        <label for="MadwordTitle" class="control-label col-md-1">Title</label>
-        <input name="MadwordTitle" class="form-control col-md-6" />
+
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item pr-3">
+                <a asp-action="Index" class="nav-link active">All<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-action="Top10" class="nav-link disabled">Top 10<span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form method="post" class="form-inline my-2 my-lg-0">
+            <label for="MadwordTitle" class="control-label" hidden>Title</label>
+            <input class="form-control mr-sm-2" type="search" name="MadwordTitle" placeholder="Search for Title" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
-    <div class="row p-2">
-        <button type="submit" class="form-control btn btn-success col-2">Search</button>
-        <a asp-action="Index" class="btn btn-secondary col-3">Reset</a>
-    </div>
-</form>
+</nav>
 }
 
 @foreach (Madword madword in Model)
