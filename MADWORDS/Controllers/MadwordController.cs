@@ -21,7 +21,8 @@ namespace MADWORDS.Controllers
         public IActionResult Index()
         {
             //get all madwords in the database
-            List<Madword> madwords = repo.Madwords.ToList<Madword>(); // Use ToList to convert the IQueryable to a list
+            //List<Madword> madwords = repo.Madwords.ToList<Madword>(); // Use ToList to convert the IQueryable to a list
+            var madwords = (from r in repo.Madwords orderby r.MadwordDate descending select r).ToList();
 
             return View(madwords);
         }
@@ -45,17 +46,16 @@ namespace MADWORDS.Controllers
         {
             //get all madwords in the database
             List<Madword> madwords = repo.Madwords.ToList<Madword>(); // Use ToList to convert the IQueryable to a list
-            
+
             return View(madwords);
         }
 
         [HttpPost]
-        public IActionResult Index(string madwordTitle)
+        public IActionResult Index(string madwordSearch)
         {
-            var madwords = (from r in repo.Madwords
-                           where r.MadwordTitle == madwordTitle
-                           select r).ToList();
-            return View(madwords);
+            var madwordsList = (from r in repo.Madwords where r.MadwordText.Contains(madwordSearch) || r.MadwordTitle.Contains(madwordSearch) || r.Author.Name.Contains(madwordSearch) orderby r.MadwordDate descending select r).ToList();
+
+            return View(madwordsList);
         }
     }
 }
