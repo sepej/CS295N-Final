@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MADWORDS", "MADWORDS.csproj", "{18466747-7470-45D7-A85A-2659CE79F2CD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "..\Tests\Tests.csproj", "{618DFE61-5643-4CEF-BD83-EC2AB34F9547}"
+	ProjectSection(ProjectDependencies) = postProject
+		{18466747-7470-45D7-A85A-2659CE79F2CD} = {18466747-7470-45D7-A85A-2659CE79F2CD}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
